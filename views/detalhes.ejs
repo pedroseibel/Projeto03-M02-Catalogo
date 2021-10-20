@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Detalhes</title>
+</head>
+
+<body>
+    <nav>
+        <article>
+            <li><a href="/">Home</a></li>
+        </article>
+        <ul>
+            <li><a href="/about">Sobre</a></li>
+            <li><a href="/criar">Inserir Poema</a></li>
+        </ul>
+    </nav>
+
+<div class="details">
+    <div class="container" id="quote-box">
+        <div class="poem-text">
+          <h6 id="title">
+            <%= poema.nome %>
+          </h6>
+        </div>
+        <div class="poem-text">
+          <p id="text">
+            <%= poema.texto %>
+          </p>
+        </div>
+        <div class="text-right poem-text">
+          <p><em>– <span id="author">
+            <%= poema.autor %></span><em>
+                <p>
+        </div>
+
+        <div class="buttons">
+            <div class="button">
+                <a class="btn btn-default" id="edit-poem" title="Editar poema" href="/editar/<%= poema.id %>">
+                  <i class="edit-poem">Editar</i>
+                </a>
+              </div>
+          <div class="button">
+            <a class="btn btn-default" id="delete-poem" title="Excluir poema" href="/deletar/<%= poema.id %>">
+              <i class="delete-poem">Excluir</i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

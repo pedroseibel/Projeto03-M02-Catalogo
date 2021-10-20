@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Editar poema</title>
+</head>
+
+<body>
+    <nav>
+        <article>
+            <li><a href="/">Home</a></li>
+        </article>
+        <ul>
+            <li><a href="/about">Sobre</a></li>
+            <li><a href="/criar">Inserir Poema</a></li>
+        </ul>
+    </nav>
+
+    <% if(message != "") {  %>
+        <section id="message">
+            <p><%= message %></p> <span id="close">&times;</span>
+        </section>
+    <% }  %>
+    
+    <% if(poema != null) {  %>
+    <section id="insert-poem">
+
+        <form action="/editar/<%= poema.id %>" method="POST">
+            <div>
+                <label for="nome">Digite o nome do poema: </label>
+                <input type="text" name="nome" id="nome" placeholder="Nome do poema" value="<%= poema.nome %>">
+            </div>
+        
+            <div>
+                <label for="poema">Digite o poema: </label>
+                <input type="text" name="texto" id="texto" placeholder="Poema" value="<%= poema.texto %>">
+            </div>
+
+            <div>
+                <label for="autor">Digite o nome do autor: </label>
+                <input type="text" name="autor" id="autor" placeholder="Nome do autor" value="<%= poema.autor %>">
+            </div>
+        
+            <button type="submit">Editar</button>
+        </form>
+    </section>
+    <% }  %>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

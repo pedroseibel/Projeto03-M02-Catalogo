@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Catálogo de Poemas</title>
+</head>
+
+<body>
+    <nav>
+        <article>
+            <li><a href="/">Home</a></li>
+        </article>
+        <ul>
+            <li><a href="/about">Sobre</a></li>
+            <li><a href="/criar">Inserir Poema</a></li>
+        </ul>
+    </nav>
+
+    <% if(message != "") {  %>
+        <section id="message">
+            <p><%= message %></p> <span id="close">&times;</span>
+        </section>
+    <% }  %>
+
+    <header>
+            <h2>Catálogo de Poemas</h2>
+    </header>
+
+    <div class="mobile-container">
+        <% poemas.forEach(poema => { %>
+            <a class="poem-container" href="/detalhes/<%= poema.id %>">
+        <div class="poems">
+            <div class="poem">
+                <div class="poem-header">
+                    <span class="random"><%= poema.autor %></span>
+                    <img src="<%= poema.imagem %>" alt="">
+                    <h2><%= poema.nome %></h2>
+                </div>
+                <div class="poem-body">
+                    <p><%= poema.texto %></p>
+                </div>
+            </div>
+        </div></a>
+        <% }) %>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
